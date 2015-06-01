@@ -21,6 +21,8 @@
 
     "autoload": {
         "psr-4": {
+            "TravelPSDK\\TestsUtils\\": "tests/utils/",
+            "TravelPSDK\\Tests\\": "tests/src/",
             "TravelPSDK\\": "src/"
         }
     }

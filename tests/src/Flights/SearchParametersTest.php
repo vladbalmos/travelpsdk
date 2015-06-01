@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Flights;
+namespace TravelPSDK\Tests\Flights;
 
 use \TravelPSDK\Flights\SearchParameters,
     \TravelPSDK\Flights\TripClass

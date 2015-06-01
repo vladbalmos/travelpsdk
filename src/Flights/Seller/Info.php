@@ -10,13 +10,13 @@ class Info extends \ArrayObject
     use OptionsAwareTrait;
 
     private $id;
-    private $phone;
+    private $phone = array();
     private $label;
     private $averageRate;
     private $currencyCode;
     private $isAirline;
     private $workingHours;
-    private $paymentMethods;
+    private $paymentMethods = array();
     private $email;
 
     /**
@@ -115,7 +115,7 @@ class Info extends \ArrayObject
         if (!is_array($methods)) {
             $methods = [$methods];
         }
-        $this->methods = $methods;
+        $this->paymentMethods = $methods;
         return $this;
     }
 

@@ -1,13 +1,16 @@
 <?php
 
-namespace Tests\Flights\Seller;
+namespace TravelPSDK\Tests\Flights\Seller;
 
 use \TravelPSDK\Flights\Seller\Builder as SellerBuilder,
-    \TravelPSDK\Flights\Seller\Entity as SellerEntity
+    \TravelPSDK\Flights\Seller\Entity as SellerEntity,
+    \TravelPSDK\TestsUtils\SearchProviderAwareTrait
     ;
 
 class SellerEntityTest extends \PHPUnit_Framework_TestCase
 {
+
+    use SearchProviderAwareTrait;
 
     /**
      * @dataProvider searchResultsProvider
@@ -27,16 +30,5 @@ class SellerEntityTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\TravelPSDK\Common\Collection', $ticketsCollection);
     }
 
-    public function searchResultsProvider()
-    {
-        $globIterator = glob(SAMPLE_DATA_PATH . '/flights.api.search.results.*');
-
-        $providedData = [];
-        foreach ($globIterator as $filename) {
-            $data = trim(file_get_contents($filename));
-            $providedData[] = [$data];
-        }
-        return $providedData;
-    }
 
 }
