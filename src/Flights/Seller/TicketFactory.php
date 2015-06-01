@@ -18,7 +18,7 @@ class TicketFactory
 
     public function create($data)
     {
-        $sellerID = $this->sellerInfo['id'];
+        $sellerID = $this->sellerInfo->getId();
         $ticketData = [
             'ticketTerms' => (array) $data->terms->$sellerID,
             'totalDuration' => $data->total_duration,

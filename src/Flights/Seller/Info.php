@@ -9,6 +9,16 @@ class Info extends \ArrayObject
 
     use OptionsAwareTrait;
 
+    private $id;
+    private $phone;
+    private $label;
+    private $averageRate;
+    private $currencyCode;
+    private $isAirline;
+    private $workingHours;
+    private $paymentMethods;
+    private $email;
+
     /**
      * @param array $params
      */
@@ -23,8 +33,13 @@ class Info extends \ArrayObject
 
     public function setId($id)
     {
-        $this['id'] = $id;
+        $this->id = $id;
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -36,38 +51,63 @@ class Info extends \ArrayObject
             $phone = [$phone];
         }
 
-        $this['phone'] = $phone;
+        $this->phone = $phone;
         return $this;
+    }
+
+    public function getPhone()
+    {
+        return $this->phone;
     }
 
     public function setLabel($label)
     {
-        $this['label'] = $label;
+        $this->label = $label;
         return $this;
+    }
+
+    public function getLabel()
+    {
+        return $this->label;
     }
 
     public function setAverageRate($rate)
     {
-        $this['averageRate'] = $rate;
+        $this->averageRate = $rate;
         return $this;
+    }
+
+    public function getAverageRate()
+    {
+        return $this->averageRate;
     }
 
     public function setCurrencyCode($currency)
     {
-        $this['currencyCode'] = $currency;
+        $this->currencyCode = $currency;
         return $this;
+    }
+
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
     }
 
     public function setIsAirline($state)
     {
-        $this['isAirline'] = (bool) $state;
+        $this->isAirline = (bool) $state;
         return $this;
     }
 
     public function setWorkingHours($hours)
     {
-        $this['workingHours'] = $hours;
+        $this->workingHours = $hours;
         return $this;
+    }
+
+    public function getWorkingHours()
+    {
+        return $this->workingHours;
     }
 
     public function setPaymentMethods($methods)
@@ -75,14 +115,24 @@ class Info extends \ArrayObject
         if (!is_array($methods)) {
             $methods = [$methods];
         }
-        $this['methods'] = $methods;
+        $this->methods = $methods;
         return $this;
+    }
+
+    public function getPaymentMethods()
+    {
+        return $this->paymentMethods;
     }
 
     public function setEmail($email)
     {
-        $this['email'] = $email;
+        $this->email = $email;
         return $this;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -90,7 +140,7 @@ class Info extends \ArrayObject
      */
     public function isAirline()
     {
-        return $this['isAirline'];
+        return $this->isAirline;
     }
 
 

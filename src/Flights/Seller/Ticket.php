@@ -8,6 +8,19 @@ class Ticket extends \ArrayObject
 {
     use OptionsAwareTrait;
 
+    private $ticketTerms;
+    private $totalDuration;
+    private $segmentDurations;
+    private $stopsAirports;
+    private $maxStops;
+    private $minStopDuration;
+    private $maxStopDuration;
+    private $isDirect;
+    private $carriers;
+    private $segments;
+    private $segmentsAirports;
+    private $segmentsTime;
+
     /**
      * @param array $params
      */
@@ -22,73 +35,73 @@ class Ticket extends \ArrayObject
 
     public function setTicketTerms($terms)
     {
-        $this['ticketTerms'] = $terms;
+        $this->ticketTerms = $terms;
         return $this;
     }
 
     public function setTotalDuration($duration)
     {
-        $this['totalDuration'] = $duration;
+        $this->totalDuration = $duration;
         return $this;
     }
 
     public function setSegmentDurations($data)
     {
-        $this['segmentDurations'] = $data;
+        $this->segmentDurations = $data;
         return $this;
     }
 
     public function setStopsAirports($data)
     {
-        $this['stopsAirports'] = $data;
+        $this->stopsAirports = $data;
         return $this;
     }
 
     public function setMaxStops($stops)
     {
-        $this['maxStops'] = $stops;
+        $this->maxStops = $stops;
         return $this;
     }
 
     public function setMinStopDuration($duration)
     {
-        $this['minStopDuration'] = $duration;
+        $this->minStopDuration = $duration;
         return $this;
     }
 
     public function setMaxStopDuration($duration)
     {
-        $this['maxStopDuration'] = $duration;
+        $this->maxStopDuration = $duration;
         return $this;
     }
 
     public function setIsDirect($state)
     {
-        $this['isDirect'] = $state;
+        $this->isDirect = $state;
         return $this;
     }
 
     public function setCarriers($data)
     {
-        $this['carriers'] = $data;
+        $this->carriers = $data;
         return $this;
     }
 
     public function setSegments($segments)
     {
-        $this['segments'] = $segments;
+        $this->segments = $segments;
         return $this;
     }
 
     public function setSegmentsAirports($data)
     {
-        $this['segmentsAirports'] = $data;
+        $this->segmentsAirports = $data;
         return $this;
     }
 
     public function setSegmentsTime($data)
     {
-        $this['segmentsTime'] = $data;
+        $this->segmentsTime = $data;
         return $this;
     }
 }
