@@ -1,10 +1,10 @@
 <?php
 
-namespace TravelPSDK\Tests\Flights;
-use \TravelPSDK\Flights\Search,
-    \TravelPSDK\Flights\SearchParameters,
-    \TravelPSDK\Flights\TripClass,
-    \TravelPSDK\Flights\SearchResults
+namespace TravelPSDK\Tests\Flight;
+use \TravelPSDK\Flight\Search,
+    \TravelPSDK\Flight\SearchParameters,
+    \TravelPSDK\Flight\TripClass,
+    \TravelPSDK\Flight\SearchResults
     ;
 
 class SearchTest extends \PHPUnit_Framework_TestCase
@@ -13,19 +13,19 @@ class SearchTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider searchParamsProvider
      */
-    public function test_FlightsSearch_Returns_a_Search_ID($searchParametersArray)
+    public function test_FlightSearch_Returns_a_Search_ID($searchParametersArray)
     {
         $searchParameters = new SearchParameters($searchParametersArray);
         $flightsSearch = new Search($searchParameters);
 
         $searchID = $flightsSearch->run();
         $this->assertNotEmpty($searchID);
-        $this->continue_test_FlightsSerch_Returns_Results($searchID);
+        $this->continue_test_FlightSerch_Returns_Results($searchID);
     }
 
     /**
      */
-    public function continue_test_FlightsSerch_Returns_Results($searchID)
+    public function continue_test_FlightSerch_Returns_Results($searchID)
     {
         $searchResults = new SearchResults($searchID);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace TravelPSDK\Flights\Seller;
+namespace TravelPSDK\Flight\Seller;
 
 
 class TicketFactory

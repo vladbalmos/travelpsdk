@@ -1,6 +1,6 @@
 <?php
 
-namespace TravelPSDK\Flights;
+namespace TravelPSDK\Flight;
 
 use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait;
 

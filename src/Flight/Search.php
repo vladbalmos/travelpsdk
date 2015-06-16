@@ -1,6 +1,6 @@
 <?php
 
-namespace TravelPSDK\Flights;
+namespace TravelPSDK\Flight;
 
 use \GuzzleHttp\Client as HttpClient,
     \TravelPSDK\Constants

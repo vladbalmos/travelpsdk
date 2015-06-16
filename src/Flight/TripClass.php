@@ -1,6 +1,6 @@
 <?php
 
-namespace TravelPSDK\Flights;
+namespace TravelPSDK\Flight;
 
 class TripClass
 {

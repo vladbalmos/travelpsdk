@@ -1,9 +1,9 @@
 <?php
 
-namespace TravelPSDK\Tests\Flights\Seller;
+namespace TravelPSDK\Tests\Flight\Seller;
 
-use \TravelPSDK\Flights\Seller\Builder as SellerBuilder,
-    \TravelPSDK\Flights\Seller\Entity as SellerEntity,
+use \TravelPSDK\Flight\Seller\Builder as SellerBuilder,
+    \TravelPSDK\Flight\Seller\Entity as SellerEntity,
     \TravelPSDK\TestsUtils\SearchProviderAwareTrait
     ;
 
@@ -24,8 +24,8 @@ class SellerEntityTest extends \PHPUnit_Framework_TestCase
         $ticketsCount = $entity->getTicketsCount();
         $ticketsCollection = $entity->getTicketsCollection();
 
-        $this->assertInstanceOf('\TravelPSDK\Flights\Seller\Entity', $entity);
-        $this->assertInstanceOf('\TravelPSDK\Flights\Seller\Info', $info);
+        $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Entity', $entity);
+        $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Info', $info);
         $this->assertInternalType('int', $ticketsCount);
         $this->assertInstanceOf('\TravelPSDK\Common\Collection', $ticketsCollection);
     }

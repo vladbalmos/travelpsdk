@@ -1,9 +1,9 @@
 <?php
 
-namespace TravelPSDK\Tests\Flights\Seller;
+namespace TravelPSDK\Tests\Flight\Seller;
 
-use \TravelPSDK\Flights\Seller\InfoFactory as SellerInfoFactory,
-    \TravelPSDK\Flights\Seller\TicketFactory,
+use \TravelPSDK\Flight\Seller\InfoFactory as SellerInfoFactory,
+    \TravelPSDK\Flight\Seller\TicketFactory,
     \TravelPSDK\TestsUtils\SearchProviderAwareTrait
     ;
 
@@ -27,7 +27,7 @@ class TicketTest extends \PHPUnit_Framework_TestCase
         $data = json_decode($data)[0];
         $sellerInfo = $this->sellerFactory->create($data);
 
-        $this->assertInstanceOf('\TravelPSDK\Flights\Seller\Info', $sellerInfo);
+        $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Info', $sellerInfo);
 
         $ticketFactory = new TicketFactory($sellerInfo);
 
@@ -37,7 +37,7 @@ class TicketTest extends \PHPUnit_Framework_TestCase
         foreach ($data->proposals as $proposal) {
             $ticket = $ticketFactory->create($proposal);
 
-            $this->assertInstanceOf('\TravelPSDK\Flights\Seller\Ticket', $ticket);
+            $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Ticket', $ticket);
         }
     }
 
@@ -49,7 +49,7 @@ class TicketTest extends \PHPUnit_Framework_TestCase
         $data = json_decode($data)[0];
         $sellerInfo = $this->sellerFactory->create($data);
 
-        $this->assertInstanceOf('\TravelPSDK\Flights\Seller\Info', $sellerInfo);
+        $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Info', $sellerInfo);
 
         $ticketFactory = new TicketFactory($sellerInfo);
 

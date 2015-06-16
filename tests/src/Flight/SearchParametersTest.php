@@ -1,9 +1,9 @@
 <?php
 
-namespace TravelPSDK\Tests\Flights;
+namespace TravelPSDK\Tests\Flight;
 
-use \TravelPSDK\Flights\SearchParameters,
-    \TravelPSDK\Flights\TripClass
+use \TravelPSDK\Flight\SearchParameters,
+    \TravelPSDK\Flight\TripClass
     ;
 
 class SearchParametersTest extends \PHPUnit_Framework_TestCase

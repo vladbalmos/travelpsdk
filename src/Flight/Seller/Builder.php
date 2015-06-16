@@ -1,9 +1,9 @@
 <?php
 
-namespace TravelPSDK\Flights\Seller;
+namespace TravelPSDK\Flight\Seller;
 
-use TravelPSDK\Flights\Seller\Info as SellerInfo,
-    TravelPSDK\Flights\Seller\InfoFactory as SellerInfoFactory,
+use TravelPSDK\Flight\Seller\Info as SellerInfo,
+    TravelPSDK\Flight\Seller\InfoFactory as SellerInfoFactory,
     TravelPSDK\Common\Collection as TicketsCollection
     ;
 

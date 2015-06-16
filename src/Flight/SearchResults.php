@@ -1,11 +1,11 @@
 <?php
 
-namespace TravelPSDK\Flights;
+namespace TravelPSDK\Flight;
 
 use \GuzzleHttp\Client as HttpClient,
     \TravelPSDK\Constants,
     \TravelPSDK\Common\Collection as SellerCollection,
-    \TravelPSDK\Flights\Seller\Builder as SellerBuilder
+    \TravelPSDK\Flight\Seller\Builder as SellerBuilder
     ;
 
 class SearchResults

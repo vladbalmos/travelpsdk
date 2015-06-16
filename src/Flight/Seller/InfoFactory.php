@@ -1,8 +1,8 @@
 <?php
 
-namespace TravelPSDK\Flights\Seller;
+namespace TravelPSDK\Flight\Seller;
 
-use TravelPSDK\Flights\Seller\Info as SellerInfo
+use TravelPSDK\Flight\Seller\Info as SellerInfo
     ;
 
 class InfoFactory

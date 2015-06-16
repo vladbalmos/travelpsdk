@@ -1,8 +1,8 @@
 <?php
 
-namespace TravelPSDK\Tests\Flights\Seller;
+namespace TravelPSDK\Tests\Flight\Seller;
 
-use \TravelPSDK\Flights\Seller\InfoFactory as SellerInfoFactory,
+use \TravelPSDK\Flight\Seller\InfoFactory as SellerInfoFactory,
     \TravelPSDK\TestsUtils\SearchProviderAwareTrait
     ;
 
@@ -26,7 +26,7 @@ class InfoTest extends \PHPUnit_Framework_TestCase
         $data = json_decode($data)[0];
         $sellerInfo = $this->factory->create($data);
 
-        $this->assertInstanceOf('\TravelPSDK\Flights\Seller\Info', $sellerInfo);
+        $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Info', $sellerInfo);
     }
 
     /**
