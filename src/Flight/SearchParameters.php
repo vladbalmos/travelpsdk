@@ -204,7 +204,7 @@ class SearchParameters extends \ArrayObject
      */
     public function getApiParams()
     {
-        $clonedArray = (array) $this;
+        $clonedArray = $this->recursiveSort($this);
         $clonedArray['signature'] = $this->getSignature();
         return $clonedArray;
     }
