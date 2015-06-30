@@ -23,11 +23,13 @@ class SellerEntityTest extends \PHPUnit_Framework_TestCase
         $info = $entity->getInfo();
         $ticketsCount = $entity->getTicketsCount();
         $ticketsCollection = $entity->getTicketsCollection();
+        $filtersBoundaries = $entity->getFiltersBoundaries();
 
         $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Entity', $entity);
         $this->assertInstanceOf('\TravelPSDK\Flight\Seller\Info', $info);
         $this->assertInternalType('int', $ticketsCount);
         $this->assertInstanceOf('\TravelPSDK\Common\Collection', $ticketsCollection);
+        $this->assertInstanceOf('\TravelPSDK\Flight\Seller\FiltersBoundaries', $filtersBoundaries);
     }
 
 

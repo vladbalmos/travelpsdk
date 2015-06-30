@@ -8,7 +8,7 @@ use \GuzzleHttp\Client as HttpClient,
     \TravelPSDK\Flight\Seller\Builder as SellerBuilder
     ;
 
-class SearchResults
+class SearchResults implements \IteratorAggregate
 {
 
     /**
@@ -25,6 +25,11 @@ class SearchResults
             throw new \RuntimeException("The searchID is invalid!");
         }
         $this->searchID = $searchID;
+    }
+
+    public function getIterator()
+    {
+        return $this->get();
     }
 
     /**

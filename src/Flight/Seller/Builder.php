@@ -40,12 +40,32 @@ class Builder
         $sellerInfo = $builder->buildSellerInfo();
         $ticketsCount = $builder->extractTicketsCount();
         $ticketsCollection = $builder->buildTicketsCollection($sellerInfo);
+        $filtersBoundaries = $builder->buildFiltersBoundaries();
 
         $entity = new Entity($sellerInfo,
                              $ticketsCount,
-                             $ticketsCollection);
+                             $ticketsCollection,
+                             $filtersBoundaries);
 
         return $entity;
+    }
+
+    private function buildFiltersBoundaries()
+    {
+        $this->validateSellerMetaGates();
+        $filtersBoundaries = new FiltersBoundaries();
+        if (!isset($this->sellerData->filters_boundary)) {
+            return $filtersBoundaries;
+        }
+        $data = $this->sellerData->filters_boundary;
+
+        foreach ($data as $key => $value) {
+            $filterName = $key;
+            $filterBoundary = $value;
+
+            $filtersBoundaries->importFilter($filterName, $filterBoundary);
+        }
+        return $filtersBoundaries;
     }
 
     /**
