@@ -6,7 +6,7 @@ use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait,
     TravelPSDK\Traits\ArrayAware as ArrayAwareTrait
     ;
 
-class Ticket extends \ArrayObject
+class Ticket
 {
     use OptionsAwareTrait;
     use ArrayAwareTrait;
@@ -29,8 +29,6 @@ class Ticket extends \ArrayObject
      */
     public function __construct(array $params = null)
     {
-        parent::__construct();
-
         if ($params) {
             $this->setOptions($params);
         }

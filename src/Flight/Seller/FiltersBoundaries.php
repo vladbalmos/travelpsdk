@@ -2,11 +2,14 @@
 
 namespace TravelPSDK\Flight\Seller;
 
-use Stringy\StaticStringy as S
+use Stringy\StaticStringy as S,
+    TravelPSDK\Traits\ArrayAware as ArrayAwareTrait
     ;
 
 class FiltersBoundaries implements \Countable
 {
+
+    use ArrayAwareTrait;
 
     /**
      * @var array

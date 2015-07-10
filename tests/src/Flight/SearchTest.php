@@ -30,6 +30,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $searchResults = new SearchResults($searchID);
 
         foreach ($searchResults as $data) {
+            var_dump($data->toArray());
             $this->assertInstanceOf('\TravelPSDK\Common\Collection', $data);
         }
     }
