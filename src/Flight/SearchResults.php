@@ -60,6 +60,9 @@ class SearchResults implements \IteratorAggregate
         $collection = new SellerCollection();
 
         foreach ($rawData as $data) {
+            if ($this->isEndDataMarker($data)) {
+                continue;
+            }
             $seller = SellerBuilder::build($data);
             $collection->append($seller);
 
