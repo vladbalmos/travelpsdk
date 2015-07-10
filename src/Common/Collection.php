@@ -2,8 +2,12 @@
 
 namespace TravelPSDK\Common;
 
+use TravelPSDK\Traits\ArrayAware as ArrayAwareTrait;
+
 class Collection extends \ArrayIterator
 {
+
+    use ArrayAwareTrait;
 
     /**
      * @param	array	$array
