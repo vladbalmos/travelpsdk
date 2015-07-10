@@ -2,12 +2,15 @@
 
 namespace TravelPSDK\Flight\Seller;
 
-use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait;
+use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait,
+    TravelPSDK\Traits\ArrayAware as ArrayAwareTrait
+    ;
 
 class Info extends \ArrayObject
 {
 
     use OptionsAwareTrait;
+    use ArrayAwareTrait;
 
     private $id;
     private $phone = array();

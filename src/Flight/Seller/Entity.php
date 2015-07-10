@@ -2,8 +2,12 @@
 
 namespace TravelPSDK\Flight\Seller;
 
+use TravelPSDK\Traits\ArrayAware as ArrayAwareTrait;
+
 class Entity
 {
+
+    use ArrayAwareTrait;
 
     /**
      * @var Info

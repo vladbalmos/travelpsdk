@@ -2,11 +2,14 @@
 
 namespace TravelPSDK\Flight\Seller;
 
-use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait;
+use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait,
+    TravelPSDK\Traits\ArrayAware as ArrayAwareTrait
+    ;
 
 class Ticket extends \ArrayObject
 {
     use OptionsAwareTrait;
+    use ArrayAwareTrait;
 
     private $ticketTerms;
     private $totalDuration;
