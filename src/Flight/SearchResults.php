@@ -88,15 +88,9 @@ class SearchResults implements \IteratorAggregate
      */
     public function isEndDataMarker($data)
     {
-        if (is_object($data)) {
-            $propertiesCount = 0;
-            foreach ($data as $key => $value) {
-                if (++$propertiesCount > 1) {  // end data marker item has only 1 property
-                    return false;
-                }
-            }
-
-            return isset($data->search_id); // end data marker has a search_id property
+        if (count($data) === 1) {
+            $data = (array) $data[0];
+            return count($data) === 1 && isset($data['search_id']);
         }
         return false;
     }
