@@ -60,9 +60,6 @@ class SearchResults implements \IteratorAggregate
         $collection = new SellerCollection();
 
         foreach ($rawData as $data) {
-            if ($this->isEndDataMarker($data)) {
-                continue;
-            }
             $seller = SellerBuilder::build($data);
             $collection->append($seller);
 
@@ -91,23 +88,17 @@ class SearchResults implements \IteratorAggregate
      */
     public function isEndDataMarker($data)
     {
-
-        if (!is_array($data)) { // end data marker is an array
-            return false;
-        }
-
-        if (count($data) !== 1) { // end data marker has only 1 element
-            return false;
-        }
-        $data = $data[0];
-        $propertiesCount = 0;
-        foreach ($data as $key => $value) {
-            if (++$propertiesCount > 1) {  // end data marker item has only 1 property
-                return false;
+        if (is_object($data)) {
+            $propertiesCount = 0;
+            foreach ($data as $key => $value) {
+                if (++$propertiesCount > 1) {  // end data marker item has only 1 property
+                    return false;
+                }
             }
-        }
 
-        return isset($data->search_id); // end data marker has a search_id property
+            return isset($data->search_id); // end data marker has a search_id property
+        }
+        return false;
     }
 
     /**

@@ -105,7 +105,7 @@ class Builder
             ||
             empty($this->sellerData->meta->gates))
         {
-            throw new \InvalidArgumentException("Seller data is invalid. Unable to get gate id/count!");
+            throw new \InvalidArgumentException("Seller data is invalid. Unable to get gate id/count!: " . serialize($this->sellerData));
         }
     }
 
