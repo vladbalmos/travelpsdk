@@ -48,7 +48,7 @@ class SearchResults implements \IteratorAggregate
             $results = $this->makeResults($decodedData);
             yield $results;
 
-        } while (!$this->isEndDataMarker($decodedData));
+        } while (true);
     }
 
     /**
@@ -60,6 +60,9 @@ class SearchResults implements \IteratorAggregate
         $collection = new SellerCollection();
 
         foreach ($rawData as $data) {
+            if ($this->isEndDataMarker($data)) {
+                continue;
+            }
             $seller = SellerBuilder::build($data);
             $collection->append($seller);
 
@@ -88,11 +91,20 @@ class SearchResults implements \IteratorAggregate
      */
     public function isEndDataMarker($data)
     {
-        if (count($data) === 1) {
-            $data = (array) $data[0];
-            return count($data) === 1 && isset($data['search_id']);
+        if (is_array($data)) {
+            if (isset($data[0]) && is_object($data[0])) {
+                $data = (array) $data[0];
+            }
+            return $this->hasOnlySearchIDProperty($data);
         }
-        return false;
+
+        $data = (array) $data;
+        return $this->hasOnlySearchIDProperty($data);
+    }
+
+    private function hasOnlySearchIDProperty($data)
+    {
+        return count($data) === 1 && isset($data['search_id']);
     }
 
     /**
