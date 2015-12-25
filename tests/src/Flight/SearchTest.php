@@ -2,6 +2,7 @@
 
 namespace TravelPSDK\Tests\Flight;
 use \TravelPSDK\Flight\Search,
+    \TravelPSDK\Flight\SearchResponse,
     \TravelPSDK\Flight\SearchParameters,
     \TravelPSDK\Flight\TripClass,
     \TravelPSDK\Flight\SearchResults
@@ -13,20 +14,50 @@ class SearchTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider searchParamsProvider
      */
-    public function test_FlightSearch_Returns_a_Search_ID($searchParametersArray)
+    public function test_FlightSearch_Returns_Response($searchParametersArray)
     {
         $searchParameters = new SearchParameters($searchParametersArray);
         $flightsSearch = new Search($searchParameters);
 
-        $searchID = $flightsSearch->run();
+        $response = $flightsSearch->run();
+        $this->assertInstanceOf('\\TravelPSDK\\Flight\\SearchResponse', $response);
+
+        $searchID = $response->getSearchID();
         $this->assertNotEmpty($searchID);
-        $this->continue_test_FlightSerch_Returns_Results($searchID);
+
+        $locale = $response->getLocale();
+        $this->assertNotEmpty($locale);
+
+        $tripClass = $response->getTripClass();
+        $this->assertNotEmpty($tripClass);
+        $this->assertEquals($searchParameters['trip_class'],  $tripClass);
+
+        $gatesCount = $response->getGatesCount();
+        $this->assertTrue(is_numeric($gatesCount));
+
+        $segments = $response->getSegments();
+        $this->assertInternalType('array', $segments);
+        $this->assertEquals(count($searchParameters['segments']), count($segments));
+
+        $passengers = $response->getPassengers();
+        $this->assertInternalType('array', $passengers);
+        $this->assertEquals($searchParameters['passengers'], (array) $passengers);
+
+        $currency = $response->getCurrencyRates();
+        $this->assertInternalType('array', $currency);
+        $this->assertNotEmpty($currency);
     }
 
     /**
+     * @dataProvider searchParamsProvider
      */
-    public function continue_test_FlightSerch_Returns_Results($searchID)
+    public function test_FlightSearch_Returns_Results($searchParametersArray)
     {
+        $searchParameters = new SearchParameters($searchParametersArray);
+        $flightsSearch = new Search($searchParameters);
+
+        $response = $flightsSearch->run();
+        $searchID = $response->getSearchID();
         $searchResults = new SearchResults($searchID);
 
         foreach ($searchResults as $data) {

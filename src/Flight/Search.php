@@ -24,13 +24,13 @@ class Search
 
     /**
      * Returns the searchID
-     * @return string
+     * @return SearchResponse
      */
     public function run()
     {
         $searchParams = $this->searchParameters->getApiParams();
         $response = $this->executeRequest($searchParams);
-        return $response->getSearchID();
+        return $response;
     }
 
     /**

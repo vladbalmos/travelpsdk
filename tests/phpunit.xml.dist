@@ -8,6 +8,13 @@
          convertWarningsToExceptions="true"
          stopOnFailure="true"
          syntaxCheck="true">
+
+    <testsuites>
+        <testsuite>
+            <directory>./src</directory>
+        </testsuite>
+    </testsuites>
+
     <filter>
         <blacklist>
             <directory>../vendor</directory>
