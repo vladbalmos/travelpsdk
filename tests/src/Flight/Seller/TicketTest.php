@@ -68,6 +68,7 @@ class TicketTest extends \PHPUnit_Framework_TestCase
         $terms = $ticket->getTicketTerms();
         $totalDuration = $ticket->getTotalDuration();
         $segmentDuration = $ticket->getSegmentDuration();
+        $this->assertInternalType('int', $segmentDuration);
         $stopsAirports = $ticket->getStopsAirports();
         $maxStops = $ticket->getMaxStops();
         $minStopDuration = $ticket->getMinStopDuration();

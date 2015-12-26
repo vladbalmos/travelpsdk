@@ -70,9 +70,9 @@ class Ticket extends \ArrayIterator
         return $this->totalDuration;
     }
 
-    public function setSegmentDurations($data)
+    public function setSegmentDuration($data)
     {
-        $this->segmentDurations = $data;
+        $this->segmentDuration = $data;
         return $this;
     }
 
