@@ -41,7 +41,6 @@ class TicketFactory
         $ticketData = [
             'ticketTerms' => (array) $data->terms->$sellerID,
             'totalDuration' => $data->total_duration,
-            'segmentDurations' => $data->segment_durations,
             'stopsAirports' => $data->stops_airports,
             'maxStops' => $data->max_stops,
             'minStopDuration' => $data->min_stop_duration,
@@ -50,6 +49,9 @@ class TicketFactory
             'carriers' => (array) $data->carriers,
             'segments' => []
         ];
+
+        $segmentsDurations = (array) $data->segment_durations;
+        $ticketData['segmentDuration'] = $segmentsDurations[$segmentIndex];
 
         $segmentsAirports = (array) $data->segments_airports;
         $ticketData['segmentsAirports'] = (array) $segmentsAirports[$segmentIndex];

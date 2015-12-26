@@ -18,7 +18,7 @@ class Ticket extends \ArrayIterator
 
     private $ticketTerms;
     private $totalDuration;
-    private $segmentDurations;
+    private $segmentDuration;
     private $stopsAirports;
     private $maxStops;
     private $minStopDuration;
@@ -76,9 +76,9 @@ class Ticket extends \ArrayIterator
         return $this;
     }
 
-    public function getSegmentDurations()
+    public function getSegmentDuration()
     {
-        return $this->segmentDurations;
+        return $this->segmentDuration;
     }
 
     public function setStopsAirports($data)
