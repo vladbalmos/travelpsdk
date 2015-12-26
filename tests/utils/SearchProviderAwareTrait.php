@@ -4,6 +4,9 @@ namespace TravelPSDK\TestsUtils;
 
 trait SearchProviderAwareTrait
 {
+    /**
+     * @return array
+     */
     public function searchResultsProvider()
     {
         $globIterator = glob(SAMPLE_DATA_PATH . '/flights.api.search.results.*');
@@ -14,5 +17,17 @@ trait SearchProviderAwareTrait
             $providedData[] = [$data];
         }
         return $providedData;
+    }
+
+    /**
+     * @param int $index
+     * @return string
+     */
+    public function getSampleDataByIndex($index)
+    {
+        $filename = SAMPLE_DATA_PATH . '/flights.api.search.results.' . $index;
+
+        $data = file_get_contents($filename);
+        return $data;
     }
 }

@@ -6,10 +6,15 @@ use TravelPSDK\Traits\OptionsAware as OptionsAwareTrait,
     TravelPSDK\Traits\ArrayAware as ArrayAwareTrait
     ;
 
-class Ticket
+class Ticket extends \ArrayIterator
 {
     use OptionsAwareTrait;
     use ArrayAwareTrait;
+
+    /**
+     * @var array
+     */
+    private $tickets = [];
 
     private $ticketTerms;
     private $totalDuration;
@@ -32,6 +37,15 @@ class Ticket
         if ($params) {
             $this->setOptions($params);
         }
+        parent::__construct($this->tickets);
+    }
+
+    /**
+     * @return string
+     */
+    public function isComposite()
+    {
+        return count($this) > 0;
     }
 
     public function setTicketTerms($terms)
@@ -164,5 +178,16 @@ class Ticket
     public function getSegmentsTime()
     {
         return $this->segmentsTime;
+    }
+
+
+    public function getOriginCode()
+    {
+        return $this->getSegmentsAirports()[0];
+    }
+
+    public function getDestinationCode()
+    {
+        return $this->getSegmentsAirports()[1];
     }
 }
