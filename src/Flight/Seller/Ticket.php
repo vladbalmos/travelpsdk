@@ -48,6 +48,15 @@ class Ticket extends \ArrayIterator
         return count($this) > 0;
     }
 
+    /**
+     * @return string
+     */
+    public function getPrice()
+    {
+        $ticket = $this->getTicket();
+        return $ticket->getTicketTerms()['price'];
+    }
+
     public function setTicketTerms($terms)
     {
         $this->ticketTerms = $terms;
@@ -189,5 +198,19 @@ class Ticket extends \ArrayIterator
     public function getDestinationCode()
     {
         return $this->getSegmentsAirports()[1];
+    }
+
+    /**
+     * If is a composite ticket return the first ticket from composite
+     * or $this otherwise
+     * @return Ticket
+     */
+    public function getTicket()
+    {
+        if (!$this->isComposite) {
+            return $this;
+        }
+
+        return $this[0];
     }
 }
