@@ -207,7 +207,7 @@ class Ticket extends \ArrayIterator
      */
     public function getTicket()
     {
-        if (!$this->isComposite) {
+        if (!$this->isComposite()) {
             return $this;
         }
 
