@@ -76,7 +76,6 @@ class SearchResults implements \IteratorAggregate
      */
     public function decodedData($rawData)
     {
-        file_put_contents('/tmp/results', $rawData . "\n\n\n", FILE_APPEND);
         $data = json_decode($rawData);
         if ( ($decodingError = json_last_error()) !== JSON_ERROR_NONE) {
             throw new \RuntimeException("Unable to decode json response: $rawData", $decodingError);
@@ -91,6 +90,10 @@ class SearchResults implements \IteratorAggregate
      */
     public function isEndDataMarker($data)
     {
+        if (empty($data)) {
+            return true;
+        }
+
         if (is_array($data)) {
             if (isset($data[0]) && is_object($data[0])) {
                 $data = (array) $data[0];

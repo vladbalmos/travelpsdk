@@ -78,5 +78,6 @@ class TicketTest extends \PHPUnit_Framework_TestCase
         $segments = $ticket->getSegments();
         $segmentsAirports = $ticket->getSegmentsAirports();
         $segmentsTime = $ticket->getSegmentsTime();
+        $price = $ticket->getPrice();
     }
 }
